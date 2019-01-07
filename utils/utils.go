@@ -6,6 +6,7 @@ import (
 	"os"
 )
 
+// CORSMiddleware sets cross-origin access to allow communication from any URL
 func CORSMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
@@ -22,6 +23,7 @@ func CORSMiddleware() gin.HandlerFunc {
 	}
 }
 
+// CheckError is a function used to check for errors and log them if present.
 func CheckError(err error, description string) {
 	if err != nil {
 		log.Fatalf(description, err)
